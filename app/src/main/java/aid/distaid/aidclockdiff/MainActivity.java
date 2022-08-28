@@ -60,16 +60,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculateTime(NumberPicker picker, int i, int i1) {
-        String hourUpStringValue = String.format(locale, "%d", hourUp.getValue());
-        String hourBottomStringValue = String.format(locale, "%d", hourBottom.getValue());
-        String minuteUpStringValue = String.format(locale, "%d", minuteUp.getValue());
-        String minuteBottomStringValue = String.format(locale, "%d", minuteBottom.getValue());
-
         SimpleDateFormat format = new SimpleDateFormat("HH:mm", locale);
 
         try {
-            Date dateUp = format.parse(String.format(locale, "%s:%s", hourUpStringValue, minuteUpStringValue));
-            Date dateBottom = format.parse(String.format(locale, "%s:%s", hourBottomStringValue, minuteBottomStringValue));
+            Date dateUp = format.parse(String.format(locale, "%d:%d", hourUp.getValue(), minuteUp.getValue()));
+            Date dateBottom = format.parse(String.format(locale, "%d:%d", hourBottom.getValue(), minuteBottom.getValue()));
 
             if (dateUp != null && dateBottom != null) {
                 long difference = Math.abs(dateBottom.getTime() - dateUp.getTime());
@@ -83,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     rm = "0" + rm;
                 }
 
-                resultText.setText(String.format("%s:%s", rh, rm));
+                resultText.setText(String.format(locale, "%s:%s", rh, rm));
             }
         } catch (ParseException e) {
             e.printStackTrace();

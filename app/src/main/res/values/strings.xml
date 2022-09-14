@@ -2,4 +2,5 @@
     <string name="app_name">AIDClockDiff</string>
     <string name="delimiter">:</string>
     <string name="defaultClockDiff">00:00</string>
+    <string name="floatingButtonContentDesc">Theme changing</string>
 </resources>

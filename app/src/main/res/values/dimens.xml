@@ -2,4 +2,5 @@
 <resources>
     <dimen name="textSize">25sp</dimen>
     <dimen name="delimiterMargin">10dp</dimen>
+    <dimen name="floatingButtonMargin">15dp</dimen>
 </resources>

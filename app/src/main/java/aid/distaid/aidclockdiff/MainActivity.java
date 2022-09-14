@@ -1,10 +1,14 @@
 package aid.distaid.aidclockdiff;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
@@ -19,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private NumberPicker minuteBottom;
 
     private TextView resultText;
+
+    private FloatingActionButton themeButton;
 
     private Locale locale;
 
@@ -40,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         minuteBottom = findViewById(R.id.minuteBottom);
 
         resultText = findViewById(R.id.resultText);
+
+        themeButton = findViewById(R.id.themeButton);
     }
 
     private void setNumerics() {
@@ -57,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         hourBottom.setOnValueChangedListener(this::calculateTime);
         minuteUp.setOnValueChangedListener(this::calculateTime);
         minuteBottom.setOnValueChangedListener(this::calculateTime);
+
+        themeButton.setOnClickListener(this::changeTheme);
     }
 
     private void calculateTime(NumberPicker picker, int i, int i1) {
@@ -83,5 +93,10 @@ public class MainActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    private void changeTheme(View view) {
+        int dark = AppCompatDelegate.getDefaultNightMode();
+        AppCompatDelegate.setDefaultNightMode(dark == AppCompatDelegate.MODE_NIGHT_YES ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
     }
 }

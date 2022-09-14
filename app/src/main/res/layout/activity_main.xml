@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/themeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="@dimen/floatingButtonMargin"
+        android:layout_marginTop="@dimen/floatingButtonMargin"
+        android:contentDescription="@string/floatingButtonContentDesc"
+        android:src="@drawable/ic_baseline_color_lens_48"
+        app:maxImageSize="40dp"/>
+
     <NumberPicker
         android:id="@+id/hourUp"
         android:layout_width="wrap_content"

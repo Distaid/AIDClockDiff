@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="textSize">25sp</dimen>
+    <dimen name="textSize">40sp</dimen>
     <dimen name="delimiterMargin">10dp</dimen>
     <dimen name="floatingButtonMargin">15dp</dimen>
 </resources>

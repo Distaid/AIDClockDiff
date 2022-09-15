@@ -3,7 +3,9 @@ package aid.distaid.aidclockdiff;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton themeButton;
 
     private Locale locale;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         locale = Locale.getDefault();
+        sp = PreferenceManager.getDefaultSharedPreferences(this);
 
+        prepareTheme();
         getWidgets();
         setNumerics();
     }
@@ -99,8 +104,21 @@ public class MainActivity extends AppCompatActivity {
         int dark = AppCompatDelegate.getDefaultNightMode();
         if (dark == AppCompatDelegate.MODE_NIGHT_NO) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            sp.edit().putString("app_theme", "dark_theme").apply();
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            sp.edit().putString("app_theme", "light_theme").apply();
+        }
+    }
+
+    private void prepareTheme() {
+        switch(sp.getString("app_theme", "light_theme")) {
+            case "dark_theme":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                break;
+            case "light_theme":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                break;
         }
     }
 }

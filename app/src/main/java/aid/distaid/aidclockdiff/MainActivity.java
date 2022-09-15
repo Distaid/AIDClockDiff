@@ -97,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeTheme(View view) {
         int dark = AppCompatDelegate.getDefaultNightMode();
-        AppCompatDelegate.setDefaultNightMode(dark == AppCompatDelegate.MODE_NIGHT_YES ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
+        if (dark == AppCompatDelegate.MODE_NIGHT_NO) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 }

@@ -15,7 +15,7 @@
         android:layout_marginEnd="@dimen/floatingButtonMargin"
         android:layout_marginTop="@dimen/floatingButtonMargin"
         android:contentDescription="@string/floatingButtonContentDesc"
-        android:src="@drawable/ic_baseline_color_lens_48"
+        android:src="@drawable/ic_baseline_circle_24"
         app:tint="?attr/colorOnPrimary"
         app:maxImageSize="40dp"/>
 
